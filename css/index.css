@@ -1,0 +1,147 @@
+/* ---------- Theme tokens ---------- */
+/*The CSS :root pseudo-class matches the document's root element.
+:root selects the document root (the <html> element).
+Declaring variables here makes them global—available anywhere in CSS.
+Purpose: *override the variables once to restyle the whole site *colors/shadows live in one place as design tokens.
+        *update them in JS*/
+:root{
+  --page-bg: #f7f9fc;
+  --ink: #26323f;
+  --card-bg: #ffffff;
+  --card-border: #e6eaf2;
+  --accent: #4f46e5;
+  --muted: #3b4a5a;
+  --shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+}
+
+/* Page defaults: background color + default text color + custom font */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
+}
+
+/* Section tags (white cards) */
+section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 22px auto;
+  max-width: 980px;
+  box-shadow: var(--shadow);
+}
+
+/* Center name & profile pic */
+.site-title, .profile {
+  display: block;
+  margin: 24px auto 8px;
+  text-align: center;
+}
+
+/* Headings */
+h1, h2, h3 { margin: 0 0 8px; }
+h2 { color: var(--accent); font-weight: 800; letter-spacing: 0.3px; }
+h3 { color: var(--muted); font-weight: 700; font-size: 1.05rem; }
+
+/* Top name styling 
+linear-gradient(): CSS function creates an image consisting of a progressive 
+transition between two or more colors along a straight line.*/
+.site-title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  -webkit-background-clip: text;    
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 20px rgba(79, 70, 229, 0.15);
+}
+
+/* Profile pic 
+object-fit property in CSS: is used to specify how an <img> or <video> 
+should be resized to fit its container. 
+cover:The image maintains its aspect ratio and fills the given dimension. The image will be clipped to fit.*/
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+/* Experience
+grid: Enables a grid layout for the element's children, allowing
+ precise placement in rows and columns.
+  grid-template-columns: repeat -> define the number, size, and layout of columns in a grid container
+           repeat-> Simplifies repetitive column definitions.
+        minmax-> Sets a range for column sizes.*/
+.experience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.experience-list > li {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+
+/* Tags and items */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.item {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: #f3f4f6;
+}
+
+/* Connect buttons 
+display: flex -> turns list into a flex container so children(<li>s) layout in a row
+flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
+.connect-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.connect-list li { margin: 0; }
+.connect-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
+  box-shadow: 0 4px 10px rgba(17,24,39,0.05);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.connect-list a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(17,24,39,0.10);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  color: #7a8aa0;
+  font-size: .95rem;
+  padding: 24px 0 40px;
+}
