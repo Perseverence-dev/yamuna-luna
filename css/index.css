@@ -24,6 +24,70 @@ body {
   line-height: 1.65;
 }
 
+/*Sticky Navigation Bar*/
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index: 2000;
+   background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+}
+
+/* small brand “pill” */
+.brand{
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  text-decoration: none;
+}
+
+.nav-inner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;             
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* horizontal nav links */
+.nav-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;  
+  /* Flex children in a row */
+  display: flex;             
+  gap: 14px;
+  /* wrap on small screens */
+  flex-wrap: wrap;           
+}
+
+.nav-links a{
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  
+}
+
+
+.nav-links a:hover{
+  background: #f3f4f6;
+  border-color: var(--card-border);
+  transform: translateY(-1px);
+}
+
+
 /* Section tags (white cards) */
 section {
   background: var(--card-bg);
@@ -80,20 +144,47 @@ grid: Enables a grid layout for the element's children, allowing
   grid-template-columns: repeat -> define the number, size, and layout of columns in a grid container
            repeat-> Simplifies repetitive column definitions.
         minmax-> Sets a range for column sizes.*/
-.experience-list {
+/*Grid changed to Flex*/
+
+.experience-list{
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
+  display: flex;             /* stack items vertically */
+  flex-direction: column;
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
+
+.exp-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+
+/* individual card */
+.experience-item{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+
 .experience-list > li {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 16px;
   box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+
+.exp-dates{
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;       /* keep dates on one line */
 }
 
 /* Tags and items */
@@ -107,6 +198,12 @@ grid: Enables a grid layout for the element's children, allowing
   background: #f3f4f6;
 }
 
+ /* group description + tags into a responsive row */
+  .experience-item p,
+  .experience-item .tags{
+    display: block;
+  }
+
 /* Connect buttons 
 display: flex -> turns list into a flex container so children(<li>s) layout in a row
 flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
@@ -116,9 +213,12 @@ flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
 }
-.connect-list li { margin: 0; }
+.connect-list li { 
+  margin: 0; 
+  flex: 0 1 auto;
+}
 .connect-list a {
   display: inline-flex;
   align-items: center;
