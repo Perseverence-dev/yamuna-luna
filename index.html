@@ -1,163 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <!--Make website look good on all devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <!--Make website look good on all devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Description of web page-->
-    <meta name="description" content="Student portfolio with About, Experience, and Connect sections." />
-    <!--Keywords for search engines-->
-    <meta name="keywords" content="portfolio, html, css, student" />
-    <!--author of a page-->
-    <meta name="author" content="Yamuna" />
-    <!--Refresh document every 1000 seconds-->
-    <meta http-equiv="refresh" content="1000">
-    <!---->
-    <title>Yamuna B</title>
+  <!-- SEO basics -->
+   
+  <!-- Description of web page-->
+  <meta name="description" content="Student portfolio with About, Experience, Skills, Projects, and Connect sections." />
+  <!--Keywords for search engines-->
+  <meta name="keywords" content="portfolio, html, css, student" />
+  <!--author of a page-->
+  <meta name="author" content="Yamuna" />
+  <!--Refresh document every 1000 seconds-->
+  <meta http-equiv="refresh" content="1000">
 
-    <!--<link> tag defines the relationship between the current document and an external resource-->
-    <!--rel -> relation to the document;preconnect -> Specifies that the browser should preemptively connect to the target resource's origin-->
-    <!--https://fonts.google.com/knowledge/using_type/using_web_fonts_from_a_font_delivery_service-->
-    <link rel="preconnect" href="" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap">
-    <link rel="stylesheet" href="css/index.css"/>
+  <title>Yamuna B</title>
+
+  <!-- Faster font loading -->
+  <!--<link> tag defines the relationship between the current document and an external resource-->
+  <!--rel -> relation to the document;preconnect -> Specifies that the browser should preemptively connect to the target resource's origin-->
+  <!--https://fonts.google.com/knowledge/using_type/using_web_fonts_from_a_font_delivery_service-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="css/index.css" />
 </head>
-<body>
 
-    <!--Add navigation bar-->
-    <nav class="site-nav" aria-label="Primary">
-      <div class="nav-inner">
-        <!-- Brand / site name links back to top -->
-        <a class="brand" href="#top" aria-label="Home">YB</a>
-        <ul class="nav-links">
-          <li><a href="#About">About</a></li>
-          <li><a href="#Experience">Experience</a></li>
-          <li><a href="#Skills">Skills</a></li>
-          <li><a href="#Projects">Projects</a></li>
-          <li><a href="#Connect">Connect</a></li>
-        </ul>
-      </div>
-    </nav>
+<body id="top">
+  <!-- Skip navigation: accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <h1 class="site-title">Yamuna</h1>
-    <!--img tag: embed an image in an HTML page-->
-    <img class="profile" src="./img/me1.png" alt="Portrait of smiling" height="200" width="120"/>
+  <!-- Primary navigation -->
+  <!--Add navigation bar-->
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <!-- Brand / site name links back to top -->
+      <a class="brand" href="#top" aria-label="Home">YB</a>
+      <ul class="nav-links">
+        <li><a href="#About">About</a></li>
+        <li><a href="#Experience">Experience</a></li>
+        <li><a href="#Skills">Skills</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Connect">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!--ABOUT-->
+  <!-- Hero / name + avatar -->
+  <h1 class="site-title">Yamuna</h1>
+  <!--img tag: embed an image in an HTML page-->
+  <img class="profile" src="./img/me1.png" alt="Portrait of Yamuna smiling" width="320" height="320" />
+
+  <main id="main">
+    <!-- ABOUT -->
     <!--aria-labelledby: helps screen readers identify the section by its label-->
     <section id="About" aria-labelledby="about-heading">
-    <h2 id="about-heading">About</h2>
-    <p>
-      Hi! I’m learning web development to transition to Developer path. I have total 10yrs of experience in Database(6+ yrs) and Electronics industry(3+ yrs).
-    </p>
+      <h2 id="about-heading">About</h2>
+      <p>
+        Hi! I’m learning web development to transition to a developer path. I have 10 years of experience:
+        Database (6+ yrs) and Electronics (3+ yrs).
+      </p>
     </section>
 
-    
-    <!-- Experience -->
-  <section id="Experience" aria-labelledby="exp-heading">
-    <h2 id="exp-heading">Experience</h2>
-    <ul class="experience-list">
-      <li class="experience-item">
-        <div class="exp-head">
-          <h3>Student Developer @ Code The Dream</h3>
-          <!-- date block on the right side -->
-          <span class="exp-dates">2024–present</span>
-        </div>
-        <p>Built a personal website and JavaScript projects.</p>
-        <div class="tags">
-          <span class="item">HTML</span>
-          <span class="item">CSS</span>
-          <span class="item">JavaScript</span>
-          <span class="item">Git</span>
-        </div>
-      </li>
+    <!-- EXPERIENCE -->
+    <section id="Experience" aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Experience</h2>
+      <ul class="experience-list">
+        <li class="experience-item">
+          <div class="exp-head">
+            <h3>Student Developer @ Code The Dream</h3>
+            <!-- date block on the right side -->
+            <span class="exp-dates">2024–present</span>
+          </div>
+          <p>Built a personal website and JavaScript projects.</p>
+          <div class="tags">
+            <span class="item">HTML</span>
+            <span class="item">CSS</span>
+            <span class="item">JavaScript</span>
+            <span class="item">Git</span>
+          </div>
+        </li>
 
-      <li class="experience-item">
-        <div class="exp-head">
-          <h3>Salesforce Database Admin/Jr. Dev</h3>
-          <span class="exp-dates">2019–2023</span>
-        </div>
-        <p>Streamlined data capture and reporting to give organizations clear insights and drive growth.</p>
-        <div class="tags">
-          <span class="item">Lightning Flow</span>
-          <span class="item">Sales Cloud</span>
-          <span class="item">Service Cloud</span>
-          <span class="item">Experience Cloud</span>
-        </div>
-      </li>
+        <li class="experience-item">
+          <div class="exp-head">
+            <h3>Salesforce Database Admin/Jr. Dev</h3>
+            <span class="exp-dates">2019–2023</span>
+          </div>
+          <p>Streamlined data capture and reporting to give organizations clear insights and drive growth.</p>
+          <div class="tags">
+            <span class="item">Lightning Flow</span>
+            <span class="item">Sales Cloud</span>
+            <span class="item">Service Cloud</span>
+            <span class="item">Experience Cloud</span>
+          </div>
+        </li>
 
-      <li class="experience-item">
-        <div class="exp-head">
-          <h3>Salesforce Development</h3>
-          <span class="exp-dates">2017–2019</span>
-        </div>
-        <p>Developed Apex services, Flow automations, and JavaScript-based LWCs.</p>
-        <div class="tags">
-          <span class="item">Apex</span>
-          <span class="item">LWC</span>
-          <span class="item">Aura</span>
-          <span class="item">VF Page</span>
-        </div>
-      </li>
+        <li class="experience-item">
+          <div class="exp-head">
+            <h3>Salesforce Development</h3>
+            <span class="exp-dates">2017–2019</span>
+          </div>
+          <p>Developed Apex services, Flow automations, and JavaScript-based LWCs.</p>
+          <div class="tags">
+            <span class="item">Apex</span>
+            <span class="item">LWC</span>
+            <span class="item">Aura</span>
+            <span class="item">VF Page</span>
+          </div>
+        </li>
 
-      <li class="experience-item">
-        <div class="exp-head">
-          <h3>Weekend Builder</h3>
-          <span class="exp-dates">2024</span>
-        </div>
-        <p>Cloned a landing page to practice responsive patterns.</p>
-        <div class="tags">
-          <span class="item">Responsive</span>
-          <span class="item">Grid</span>
-        </div>
-      </li>
+        <li class="experience-item">
+          <div class="exp-head">
+            <h3>Weekend Builder</h3>
+            <span class="exp-dates">2024</span>
+          </div>
+          <p>Cloned a landing page to practice responsive patterns.</p>
+          <div class="tags">
+            <span class="item">Responsive</span>
+            <span class="item">Grid</span>
+          </div>
+        </li>
 
-      <li class="experience-item">
-        <div class="exp-head">
-          <h3>Production Engineer - Electronics</h3>
-          <span class="exp-dates"></span>
-        </div>
-        <p>Drove prototyping-to-production cycles. Build, test, iterate — and ensured on-time delivery.</p>
-        <div class="tags">
-          <span class="item">ERP - Super User</span>
-          <span class="item">Prototyping</span>
-          <span class="item">Testing Jigs Design</span>
-        </div>
-      </li>
-      
-    </ul>
-  </section>
-  
+        <li class="experience-item">
+          <div class="exp-head">
+            <h3>Production Engineer – Electronics</h3>
+            <span class="exp-dates">—</span>
+          </div>
+          <p>Drove prototyping-to-production cycles. Built, tested, iterated—and shipped on time.</p>
+          <div class="tags">
+            <span class="item">ERP – Super User</span>
+            <span class="item">Prototyping</span>
+            <span class="item">Testing Jigs</span>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-   <!--Skills-->
-  <section id="Skills" aria-labelledby="skills-heading">
-    <h2 id="skills-heading">Skills</h2>
-    <p>
-    </p>
-  </section>
+    <!-- SKILLS -->
+    <section id="Skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <p>Front-end fundamentals (HTML, CSS, Flexbox/Grid, responsive media queries) and Salesforce (Flows, Apex, SOQL, LWC).</p>
+    </section>
 
-  <!--Projects-->
-  <section id="Projects" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Projects</h2>
-    <ul>
+    <!-- PROJECTS -->
+    <section id="Projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <ul>
+        <li>Personal portfolio – (mobile-first + accessible).</li>
+        <li>Salesforce - Experience Cloud - Fundraiser project</li>
+      </ul>
+    </section>
 
-
-    </ul>
-  </section>
-
-  <!-- Connect -->
-  <section id="Connect" aria-labelledby="connect-heading">
-    <h2 id="connect-heading">Connect</h2>
-    <ul class="connect-list">
-      <li><a href="mailto:yamunabc55@gmail.com" aria-label="Email">📧 <span>Email</span></a></li>
-      <li><a href="https://github.com/Perseverence-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">💻 <span>GitHub</span></a></li>
-      <li><a href="https://www.linkedin.com/in/yamuna-b-a2469255" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">🔗 <span>LinkedIn</span></a></li>
-    </ul>
-  </section>
- 
+    <!-- CONNECT -->
+    <section id="Connect" aria-labelledby="connect-heading">
+      <h2 id="connect-heading">Connect</h2>
+      <ul class="connect-list">
+        <li><a href="mailto:yamunabc55@gmail.com" aria-label="Email">📧 <span>Email</span></a></li>
+        <li><a href="https://github.com/Perseverence-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">💻 <span>GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/yamuna-b-a2469255" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">🔗 <span>LinkedIn</span></a></li>
+      </ul>
+    </section>
+  </main>
 
   <footer class="site-footer">&copy; 2025 Yamuna</footer>
-
- </body>
+</body>
 </html>
