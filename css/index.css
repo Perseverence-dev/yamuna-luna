@@ -363,3 +363,67 @@ flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
       0 12px 24px rgba(0,0,0,0.45);
   }
 }
+
+/* ---------- Message Form & List ---------- */
+#form form {
+  max-width: 720px;
+  display: grid;
+  gap: 10px;
+}
+
+#form label { font-weight: 600; }
+
+#form input,
+#form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  outline: none;
+  color:#e6eaf2;
+}
+
+#form input:focus,
+#form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .15);
+}
+
+#form button[type="submit"] {
+  justify-self: start;
+  padding: 10px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#messages .message-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+#messages .message-list li {
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#messages .message-list li button {
+  padding: 6px 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  cursor: pointer;
+  color:#e6eaf2;  
+}
