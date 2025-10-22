@@ -1,0 +1,446 @@
+/* ==========================================================
+   Responsive Portfolio – index.css
+   * Stretch goal: grid layout for Experience on larger screens ☑
+   ========================================================== */
+
+/* ---------- Theme tokens (design system) ---------- */
+/*The CSS :root pseudo-class matches the document's root element.
+:root selects the document root (the <html> element).
+Declaring variables here makes them global—available anywhere in CSS.
+Purpose: *override the variables once to restyle the whole site *colors/shadows live in one place as design tokens.
+        *update them in JS*/
+:root{
+  --page-bg: #f7f9fc;
+  --ink: #26323f;
+  --muted: #3b4a5a;
+  --card-bg: #ffffff;
+  --card-border: #e6eaf2;
+  --accent: #4f46e5;
+  --accent-2: #06b6d4;
+  --shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+
+  /* spacing + type scale */
+  --space-1: .5rem;
+  --space-2: .75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+
+  --fs-sm: .95rem;
+  --fs-base: 1rem;
+  --fs-h2: clamp(1.4rem, 3.5vw, 2rem);
+  --fs-hero: clamp(2rem, 6vw, 3.2rem);
+}
+
+/* ---------- Base / page defaults ---------- */
+/* Page defaults: background color + default text color + custom font */
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
+  font-size: var(--fs-base);
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+}
+.skip-link:focus {
+  position: fixed;
+  left: var(--space-3);
+  top: var(--space-3);
+  width: auto; height: auto;
+  padding: var(--space-2) var(--space-3);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: .5rem;
+  box-shadow: var(--shadow);
+}
+
+/* ----------Sticky Navigation bar---------- */
+.site-nav{
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+}
+.nav-inner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* small brand “pill” */
+.brand{
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  text-decoration: none;
+}
+/* horizontal nav links */
+.nav-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;  /* Flex children in a row */
+  gap: 14px;
+  flex-wrap: wrap; /* wrap on narrow screens */
+}
+.nav-links a{
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.nav-links a:hover{
+  background: #f3f4f6;
+  border-color: var(--card-border);
+  transform: translateY(-1px);
+}
+
+/* ---------- Scetion tags (White Cards) ---------- */
+section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 22px auto;
+  max-width: 980px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Headings / hero ---------- */
+h1, h2, h3 { margin: 0 0 8px; }
+h2 { color: var(--accent); font-weight: 800; letter-spacing: 0.3px; font-size: var(--fs-h2); }
+h3 { color: var(--muted); font-weight: 700; font-size: 1.05rem; }
+
+/* Center name & file pic */
+/* Top name styling 
+linear-gradient(): CSS function creates an image consisting of a progressive 
+transition between two or more colors along a straight line.*/
+.site-title {
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  margin: 24px auto 8px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 20px rgba(79, 70, 229, 0.15);
+}
+
+/* Avatar */
+/* Profile pic 
+object-fit property in CSS: is used to specify how an <img> or <video> 
+should be resized to fit its container. 
+cover:The image maintains its aspect ratio and fills the given dimension. The image will be clipped to fit.*/
+.profile {
+  display: block;
+  margin: 0 auto 22px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+/* ---------- Experience (stacked on mobile) ---------- */
+/* Experience
+grid: Enables a grid layout for the element's children, allowing
+ precise placement in rows and columns.
+  grid-template-columns: repeat -> define the number, size, and layout of columns in a grid container
+           repeat-> Simplifies repetitive column definitions.
+        minmax-> Sets a range for column sizes.*/
+/*Grid changed to Flex*/
+.experience-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;          /* mobile: vertical stack */
+  flex-direction: column;
+  gap: 16px;
+}
+.exp-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+/* individual card */
+.experience-item{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(17,24,39,0.05);
+}
+.exp-dates{
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.item {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(180deg, #ffffff, #eef2f7);
+  color: #0f172a;
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.65) inset, /* inner top highlight */
+    0 6px 16px rgba(17,24,39,0.06);       /* soft outer shadow */
+
+  /* prevent text wrap inside very short pills */
+  white-space: nowrap;
+}
+
+/* ---------- Connect buttons ---------- */
+/* Connect buttons 
+display: flex -> turns list into a flex container so children(<li>s) layout in a row
+flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
+.connect-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.connect-list li { margin: 0; flex: 0 1 auto; }
+.connect-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
+  box-shadow: 0 4px 10px rgba(17,24,39,0.05);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.connect-list a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(17,24,39,0.10);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  color: #7a8aa0;
+  font-size: var(--fs-sm);
+  padding: 24px 0 40px;
+}
+
+/* Skills list (built by JS) */
+.skills-list{
+  list-style: none;
+  margin: 0 0 var(--space-3);
+  padding: 0;
+  display: flex;        
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skills-list li{
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================
+   MEDIA QUERY #1 – Tablet and up (>= 640px)
+   ========================================================== */
+@media (min-width: 640px) {
+  .experience-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .profile {
+    width: 190px;
+    height: 190px;
+  }
+  section {
+    padding: 28px;
+  }
+  .nav-links a {
+    padding: 10px 14px;
+  }
+  .skills-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+}
+
+/* ==========================================================
+   MEDIA QUERY #2 – Desktop and up (>= 1024px)
+   ========================================================== */
+@media (min-width: 1024px) {
+  .experience-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .site-title {
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    margin-top: 28px;
+  }
+  .nav-inner {
+    max-width: 1100px;
+  }
+  .connect-list a {
+    padding: 12px 16px;
+  }
+}
+
+/* Motion sensitivity (a11y) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav-links a:hover,
+  .connect-list a:hover { transform: none; }
+}
+
+/* Optional: system dark mode (bonus polish) */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --page-bg:#0f172a;
+    --ink:#e6edf3;
+    --muted:#94a3b8;
+    --card-bg:#0b1220;
+    --card-border:#1f2937;
+    --shadow:none;
+  }
+  .nav-links a:hover { background:#111827; }
+  .item {
+    background: rgba(255,255,255,0.08);
+    color: #e6edf3;
+    border-color: rgba(255,255,255,0.14);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.06) inset,
+      0 6px 16px rgba(0,0,0,0.35);
+  }
+  .item:hover {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.08) inset,
+      0 12px 24px rgba(0,0,0,0.45);
+  }
+  
+}
+
+/* ---------- Message Form & List ---------- */
+#form form {
+  max-width: 720px;
+  display: grid;
+  gap: 10px;
+}
+
+#form label { font-weight: 600; }
+
+#form input,
+#form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  outline: none;
+  color:#e6eaf2;
+}
+
+#form input:focus,
+#form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .15);
+}
+
+#form button[type="submit"] {
+  justify-self: start;
+  padding: 10px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#messages .message-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+#messages .message-list li {
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#messages .message-list li button {
+  padding: 6px 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  cursor: pointer;
+  color:#e6eaf2;  
+}
+
+/* ===== GitHub Repositories grid ===== */
+#project-list ,#project-personal{
+  list-style: bullet;          /* remove bullets */
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;             
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px;                 
+}
+
+/* Space before the "GitHub Repositories:" heading only in Projects */
+#Projects h3 {
+  margin-top: 28px;     
+  margin-bottom: 8px;   
+}
