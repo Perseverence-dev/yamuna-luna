@@ -85,7 +85,14 @@ messageForm.addEventListener("submit",(event) => {
   
   //Text message holder - written messages are saved in span element
   const msgSpan = document.createElement('span');
-  msgSpan.textContent = message;
+  msgSpan.textContent = `${message}`;
+
+  //Clickable mailto link
+  const namelink = document.createElement('a');
+  namelink.href = `mailto: ${email}`;
+  namelink.title = `Email : ${name}`;
+  namelink.textContent = name;
+
 
 
   //Make a new <button> element for remove
@@ -121,7 +128,7 @@ messageForm.addEventListener("submit",(event) => {
     //If Editing, Save changes
     if(isEditing){
       const textarea = newMessage.querySelector("textarea");
-      msgSpan.textContent = textarea.value.trim();
+      msgSpan.textContent = `${textarea.value.trim()}`;
       textarea.replaceWith(msgSpan);
       editButton.textContent = "Edit";
       removeButton.disabled = false;
@@ -130,6 +137,7 @@ messageForm.addEventListener("submit",(event) => {
       textarea.value = msgSpan.textContent;
       textarea.name = "editMessage";
       textarea.rows = 3;
+      textarea.value = msgSpan.textContent.trim();
       msgSpan.replaceWith(textarea);
       textarea.focus();
       editButton.textContent = "Save";
@@ -139,7 +147,7 @@ messageForm.addEventListener("submit",(event) => {
 
   })
 
-
+  newMessage.appendChild(namelink);
   newMessage.appendChild(msgSpan);
 
   //Append the removeButton to the newMessage element
@@ -155,3 +163,39 @@ messageForm.addEventListener("submit",(event) => {
   messageForm.reset();
   
 })
+
+//Week 13: Fetch repository from github
+
+const projectSection = document.querySelector('#Projects');
+const projectList = projectSection.querySelector('#project-list');
+
+//GET request using fetch
+fetch('https://api.github.com/users/Perseverence-dev/repos')
+.then(response => {
+  if(!response.ok) {
+    throw new Error(`Error : ${response.status}`);
+  }
+  return response.json();
+})
+.then(repositories => {
+  console.log(`My Github Repositories:`,repositories);
+
+  repositories.forEach((repo)=>{
+
+    const project = document.createElement('li');
+
+    const link = document.createElement('a');
+    link.href = repo.html_url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = repo.name;
+
+    project.appendChild(link);
+    projectList.appendChild(project);
+    console.log('Repositories: ${repo.name}')
+
+  });
+
+})
+.catch(error =>  console.error('Oops there was an error : ',error));
+

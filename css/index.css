@@ -134,7 +134,7 @@ h1, h2, h3 { margin: 0 0 8px; }
 h2 { color: var(--accent); font-weight: 800; letter-spacing: 0.3px; font-size: var(--fs-h2); }
 h3 { color: var(--muted); font-weight: 700; font-size: 1.05rem; }
 
-/* Center name & profile pic */
+/* Center name & file pic */
 /* Top name styling 
 linear-gradient(): CSS function creates an image consisting of a progressive 
 transition between two or more colors along a straight line.*/
@@ -362,6 +362,7 @@ flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
       0 1px 0 rgba(255,255,255,.08) inset,
       0 12px 24px rgba(0,0,0,0.45);
   }
+  
 }
 
 /* ---------- Message Form & List ---------- */
@@ -426,4 +427,20 @@ flex-wrap: wrap; -> allows items to wrap to a new line on small screens*/
   background: var(--card-bg);
   cursor: pointer;
   color:#e6eaf2;  
+}
+
+/* ===== GitHub Repositories grid ===== */
+#project-list ,#project-personal{
+  list-style: bullet;          /* remove bullets */
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;             
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px;                 
+}
+
+/* Space before the "GitHub Repositories:" heading only in Projects */
+#Projects h3 {
+  margin-top: 28px;     
+  margin-bottom: 8px;   
 }
