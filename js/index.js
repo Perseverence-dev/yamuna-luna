@@ -19,13 +19,15 @@ const skills = [
   'HTML',
   'CSS',
   'GitHub',
-  'Flexbox',
-  'Grid',
-  'Responsive Design',
+  'VS Code',
   'Salesforce Flow',
   'Apex',
   'SOQL',
-  'LWC'
+  'LWC',
+  'Aura',
+  'VF Pages',
+  'SQL',
+  'Advanced Excel'
 ];
 
 // Select only inside the Skills section
